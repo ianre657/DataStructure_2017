@@ -19,35 +19,47 @@ class MaxHeap: public MaxPriorityQueue<T>{
 public:
     MaxHeap( int _capacity =10 );
 
-    bool IsEmpty() const override { return heapSize==0; };
+    bool IsEmpty() const override { return _heapSize==0; };
 
-    const T& Top() const override { return heap[1]; }; 
+    size_t size() const{ return _heapSize;};
+    size_t capacity() const{ return capacity;};
+    
+    void clear();
+    
+    bool reserve( size_t ); 
 
-    void Push( const T&) override ;
+    bool existElement( const T & )const{};
 
-    void Pop( void ) override ;
+    MaxHeap<T>& operator=( const MaxHeap<T> &); 
 
+    const T& top() const override { return _heap[1]; }; 
+
+    void push( const T&) override ;
+
+    void pop( void ) override ;
+
+ 
 protected:
-    T * heap;
-    size_t heapSize;
-    size_t capacity;
+    T * _heap;
+    size_t _heapSize;
+    size_t _capacity;
 };
 
 template<typename T>
 MaxHeap<T>::MaxHeap( int _capacity ){
     if( _capacity <1 ) throw std::runtime_error("Capacity must be >=1.");
-    capacity = _capacity;
-    heapSize = 0;
-    heap = new T[capacity+1];// heap[0] is not used.
+    _capacity = _capacity;
+    _heapSize = 0;
+    _heap = new T[_capacity+1];// heap[0] is not used.
 }
 
 template<typename T>
-void MaxHeap<T>::Push( const T&){
+void MaxHeap<T>::push( const T&){
     
 }
 
 template<typename T>
-void MaxHeap<T>::Pop( void ){
+void MaxHeap<T>::pop( void ){
     
 }
 
