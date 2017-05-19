@@ -73,8 +73,8 @@ LinkedList<T>::~LinkedList(){
  }
 
 template<typename T>
-LinkedList<T>::addLast( T element ){
-
+void LinkedList<T>::addLast( T element ){
+    
 
 
 }
