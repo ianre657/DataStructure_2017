@@ -24,15 +24,18 @@ public:
     size_t size() const{ return _heapSize;};
     size_t capacity() const{ return capacity;};
     
-    void clear();
+    void clear(void);
     
     bool reserve( size_t ); 
 
-    bool existElement( const T & )const{};
+    bool existElement( const T & )const;
 
     MaxHeap<T>& operator=( const MaxHeap<T> &); 
 
-    const T& top() const override { return _heap[1]; }; 
+    const T& top() const override{
+        if( _capacity <1 ) throw std::runtime_error("There is no element in the heap.");
+        return _heap[1];
+    }; 
 
     void push( const T&) override ;
 
@@ -54,6 +57,12 @@ MaxHeap<T>::MaxHeap( int _capacity ){
 }
 
 template<typename T>
+bool MaxHeap<T>::reserve( size_t ){
+
+} 
+
+
+template<typename T>
 void MaxHeap<T>::push( const T&){
     
 }
@@ -61,6 +70,21 @@ void MaxHeap<T>::push( const T&){
 template<typename T>
 void MaxHeap<T>::pop( void ){
     
+}
+
+template<typename T>
+void MaxHeap<T>::clear(void){
+
+}
+
+template<typename T>
+bool MaxHeap<T>::existElement( const T & )const{
+
+}
+
+template<typename T>
+MaxHeap<T>& MaxHeap<T>::operator=( const MaxHeap<T> &){
+
 }
 
 #endif
